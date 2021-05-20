@@ -1,0 +1,72 @@
+body {
+  background: #fafafa;
+  color: #333333;
+  margin-top: 5rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: indigo;
+}
+
+.bg-steel {
+  background-color: indigo;
+}
+
+.site-header .navbar-nav .nav-link {
+  color: #cbd5db;
+}
+
+.site-header .navbar-nav .nav-link:hover {
+  color: #ffffff;
+}
+
+.site-header .navbar-nav .nav-link.active {
+  font-weight: 500;
+}
+
+.content-section {
+  background: #ffffff;
+  padding: 10px 20px;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  margin-bottom: 20px;
+}
+
+.title-underline {
+  padding-bottom: 5px;
+  margin-bottom: 3px;
+  border-bottom: 2px solid #e3e3e3
+}
+
+.home-box{
+  margin: 4px solid #cdcdcd;
+  padding: 10px;
+}
+
+.item-box{
+  background: #ffffff;
+  padding: 10px 20px;
+  border: 1px solid #dddddd;
+  border-radius: 10px;
+  margin-bottom: 5px;
+}
+
+.poem-date{
+  color: #888888;
+}
+
+a.poem-url{
+  color: indigo;
+  font-weight: 600;
+  font-size: 22px;
+}
+
+a.poem-url:hover{
+  color: blue;
+  text-decoration: none;
+}
+
+.skill-img{
+  height: 50px;
+  width: 50px;
+}

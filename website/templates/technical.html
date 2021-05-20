@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1>Technical</h1>
+
+<h3>Projects</h3>
+
+
+
+<h3>Experience</h3>
+
+
+
+<h3>Certificates</h3>
+<div class="row">
+    {% for cert in technical.certificates %}
+        <div class="col-12 col-md-6">
+            <div class="item-box">
+                <span>
+                    <span style="display: flex;">
+                        <div style="flex-grow: 1;">
+                            <div style="font-weight: bold;color: indigo;">{{ cert.name }}</div>
+                            <div>{{ cert.issuer }}</div>
+                        </div>
+                        <div style="color: #666666; font-weight: 700;width: 100px;text-align: right;">
+                            {{ cert.date }}
+                        </div>
+                    </span>
+                </span>
+                <div style="font-weight: 600;color: #666666;">{{ cert.type }}</div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+
+<h3>Skills</h3>
+<div class="row">
+    {% for skill in technical.skills %}
+        <div class="col-6 col-md-3">
+            <div class="item-box">
+                <span style="font-weight: bold;color: indigo;">
+                    <img class="skill-img" style="margin-right: 15px;" src="{{ url_for('static', filename=skill.url) }}">
+                    {{ skill.name }}
+                </span>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+<div style="height: 50px;"></div>
+{% endblock %}
