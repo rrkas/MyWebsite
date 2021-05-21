@@ -39,13 +39,13 @@
         <div>
             <span style="display: flex;">
                 <div class="item" style="width: 100px;">Qwiklabs</div>
-                <div class="item" style="flex: 1;"><a class="item-url item" href="{{ details.qwiklabs }}">{{ details.qwiklabs }}</a></div>
+                <div class="item ml-3" style="flex-shrink: 1;"><a class="item-url item" href="{{ details.qwiklabs }}">{{ details.qwiklabs }}</a></div>
             </span>
         </div>
         <div>
             <span style="display: flex;">
                 <div class="item" style="width: 100px;">Hobbies</div>
-                <div class="item" style="flex: 1;">
+                <div class="item ml-3" style="flex: 1;">
                     <ul style="padding-left: 15px;">
                         {% for hobby in details.hobbies %}
                             <li>{{ hobby }}</li>
@@ -57,7 +57,7 @@
         <div>
             <span style="display: flex;">
                 <div class="item" style="width: 100px;">Sports</div>
-                <div class="item" style="flex: 1">{{ details.sports }}</div>
+                <div class="item ml-3" style="flex: 1">{{ details.sports }}</div>
             </span>
         </div>
     </div>

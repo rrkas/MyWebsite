@@ -70,3 +70,10 @@ a.item-url:hover{
   height: 50px;
   width: 50px;
 }
+
+.logo{
+  height: 30px;
+  width: 30px;
+  border-radius: 30px;
+  margin-right: 10px;
+}

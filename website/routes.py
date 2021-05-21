@@ -1,9 +1,18 @@
+import os
 from datetime import datetime
 from flask import *
 from website.static_details import *
 from website.models import *
 
 main = Blueprint('main', __name__)
+
+
+@main.route('/favicon.ico')
+def favicon():
+    return send_from_directory(
+        os.path.join(current_app.root_path, 'static'),
+        'favicon.ico', mimetype='image/vnd.microsoft.icon'
+    )
 
 
 @main.route('/')

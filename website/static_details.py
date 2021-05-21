@@ -14,7 +14,8 @@ class PersonalDetails:
     hobbies = ['Poems', 'Coding']
     sports = 'Badminton'
     education = [
-        Education('B.Tech. (CSE)', 'College of Engineering and Technology (CET)', 'Ghatikia, Bhubaneswar', 2022, str(round(9.44 * 9.5, 2))),
+        Education('B.Tech. (CSE)', 'College of Engineering and Technology (CET)', 'Ghatikia, Bhubaneswar', 2022,
+                  str(round(9.44 * 9.5, 2))),
         Education('Class 12', 'D.A.V. Public School', 'CDA-6, Cuttack', 2018, '92.40'),
         Education('Class 10', 'D.A.V. Public School', 'CDA-6, Cuttack', 2016, '95.00'),
     ]
@@ -157,6 +158,8 @@ class Technical:
         Skill('Python', 'skills/py.png', 4),
         Skill('Flutter', 'skills/flutter.png', 4),
         Skill('Golang', 'skills/go.png', 3),
+        Skill('Flask', 'skills/flask.png', 3),
+        Skill('Android', 'skills/android.png', 3),
         Skill('Kotlin', 'skills/kt.png', 3),
         Skill('C-Language', 'skills/c.png', 3),
         Skill('C++', 'skills/cpp.png', 3),
@@ -250,6 +253,7 @@ class Technical:
             date=''
         )
     ]
+
 
 class Projects:
     pass
