@@ -1,8 +1,15 @@
+from typing import List
+
+
 class Poem:
+    count = 0
+
     def __init__(self, name: str, url: str, date: str):
+        Poem.count += 1
         self.name = name
         self.url = url
         self.date = date
+        self.id = Poem.count
 
 
 class Education:
@@ -23,9 +30,9 @@ class CertificateType:
 
 
 class Certificate:
-    def __init__(self, issuer: str, filepathstatic: str, date: str, type: CertificateType, name: str):
+    def __init__(self, issuer: str, url: str, date: str, type: CertificateType, name: str):
         self.issuer = issuer
-        self.url = filepathstatic
+        self.url = url
         self.date = date
         self.type = type
         self.name = name
@@ -39,7 +46,7 @@ class Skill:
 
 
 class Experience:
-    def __init__(self, name: str, months: int, place: str, type: CertificateType, date:str):
+    def __init__(self, name: str, months: int, place: str, type: CertificateType, date: str):
         self.name = name
         self.months = months
         self.place = place
@@ -47,9 +54,23 @@ class Experience:
         self.date = date
 
 
+class ProjectType:
+    OPEN_SOURCE = 'Open Source'
+    INTERNSHIP = 'Internship'
+    PRACTICE = 'Practice'
+
+
 class Project:
-    def __init__(self, name: str, desc: str, url: str, date: str):
+    def __init__(self,
+                 name: str = '', desc: str = '',
+                 url: str = None, date: str = None, techUsed: List[str] = None,
+                 type: ProjectType = None, domain=None, image_url=None,
+                 ):
         self.name = name
         self.desc = desc
         self.url = url
         self.date = date
+        self.techUsed = techUsed
+        self.type = type
+        self.domain = domain
+        self.image_url = image_url

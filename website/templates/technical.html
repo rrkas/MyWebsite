@@ -10,7 +10,7 @@
 
 <h3 class="mt-5">Certificates ({{ technical.certificates|length }})</h3>
 <div class="row">
-    {% for cert in technical.certificates %}
+    {% for cert in technical.get_certificates() %}
         <div class="col-12 col-md-6">
             <div class="item-box">
                 <span>
@@ -19,13 +19,13 @@
                             <div style="font-weight: bold;color: indigo;">{{ cert.name }}</div>
                             <div>{{ cert.issuer }}</div>
                         </div>
-                        <div style="color: #666666; font-weight: 700;width: 100px;text-align: right;">
+                        <div style="color: #666666; font-weight: 700;width: 120px;text-align: right;">
                             {{ cert.date }}
                         </div>
                     </span>
                 </span>
                 <div style="font-weight: 600;color: #666666;">{{ cert.type }}</div>
-                <a style="font-size: 14px;color: indigo;" class="item-url" href="#">View Document</a>
+                <a style="font-size: 14px;color: indigo;" class="item-url" href="{{ url_for('main.certificate', c_id=loop.index) }}">View Document</a>
             </div>
         </div>
     {% endfor %}

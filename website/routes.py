@@ -27,13 +27,34 @@ def about():
 
 @main.route('/technical')
 def technical():
-    Technical.certificates.sort(key=lambda x: datetime.strptime(x.date, '%d-%m-%Y'), reverse=True)
     return render_template('technical.html', title='Technical', technical=Technical)
+
+
+@main.route('/certificate/<int:c_id>')
+def certificate(c_id: int):
+    if not c_id or c_id > len(Technical.certificates):
+        abort(404)
+    cert = Technical.get_certificates()[c_id - 1]
+    return render_template('certificate_poem.html', title='Certificate', cert=cert)
+
+
+@main.route('/projects')
+def projects():
+    p = Projects.get_projects()
+    return render_template('projects.html', title='Projects', projects=p)
 
 
 @main.route('/poems')
 def poems():
     return render_template('poems.html', title='Poems', poems=PoemData)
+
+
+@main.route('/poem/<int:p_id>')
+def poem(p_id: int):
+    if not p_id or p_id > Poem.count:
+        abort(404)
+    p = PoemData.get_poem_by_id(p_id)
+    return render_template('certificate_poem.html', title='Poem', cert=p)
 
 
 # ======================== error handlers ===========================
