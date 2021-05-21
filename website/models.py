@@ -6,7 +6,7 @@ class Poem:
 
 
 class Education:
-    def __init__(self, std: str, school: str, address: str, year: int, score: float):
+    def __init__(self, std: str, school: str, address: str, year: int, score: str):
         self.std = std
         self.school = school
         self.address = address
@@ -39,8 +39,17 @@ class Skill:
 
 
 class Experience:
-    def __init__(self, name: str, months: int, place: str, type: CertificateType):
+    def __init__(self, name: str, months: int, place: str, type: CertificateType, date:str):
         self.name = name
         self.months = months
         self.place = place
         self.type = type
+        self.date = date
+
+
+class Project:
+    def __init__(self, name: str, desc: str, url: str, date: str):
+        self.name = name
+        self.desc = desc
+        self.url = url
+        self.date = date

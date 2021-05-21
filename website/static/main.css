@@ -55,13 +55,13 @@ h1, h2, h3, h4, h5, h6 {
   color: #888888;
 }
 
-a.poem-url{
+a.poem-title{
   color: indigo;
   font-weight: 600;
   font-size: 22px;
 }
 
-a.poem-url:hover{
+a.item-url:hover{
   color: blue;
   text-decoration: none;
 }

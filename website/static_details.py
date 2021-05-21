@@ -11,12 +11,12 @@ class PersonalDetails:
     github = 'https://github.com/rrkas'
     linkedin = 'https://www.linkedin.com/in/rohnak-agarwal-5558391a0/'
     qwiklabs = 'https://google.qwiklabs.com/public_profiles/4b318807-5a88-4858-8fd1-3230f22b21d3'
-    hobbies = 'Poems, Coding'
+    hobbies = ['Poems', 'Coding']
     sports = 'Badminton'
     education = [
-        Education('B.Tech. (CSE)', 'College of Engineering and Technology (CET)', 'Bhubaneswar', 2022, 9.44 * 9.5),
-        Education('Class 12', 'D.A.V. Public School', 'CDA-6, Cuttack', 2018, 92.4),
-        Education('Class 10', 'D.A.V. Public School', 'CDA-6, Cuttack', 2016, 95.0),
+        Education('B.Tech. (CSE)', 'College of Engineering and Technology (CET)', 'Ghatikia, Bhubaneswar', 2022, str(round(9.44 * 9.5, 2))),
+        Education('Class 12', 'D.A.V. Public School', 'CDA-6, Cuttack', 2018, '92.40'),
+        Education('Class 10', 'D.A.V. Public School', 'CDA-6, Cuttack', 2016, '95.00'),
     ]
 
 
@@ -166,7 +166,7 @@ class Technical:
         Certificate(
             issuer='Coursera',
             type=CertificateType.COURSE,
-            date='08-04-2000',
+            date='08-04-2020',
             filepathstatic='certificates/Coursera python for everybody.pdf',
             name='Python for Everybody',
         ),
@@ -246,6 +246,10 @@ class Technical:
             name='Flutter Mobile App Intern',
             type=CertificateType.INTERNSHIP,
             months=2,
-            place='PriME Technology PVT Ltd.'
+            place='PriME Technology PVT Ltd.',
+            date=''
         )
     ]
+
+class Projects:
+    pass

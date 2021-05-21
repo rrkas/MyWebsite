@@ -11,6 +11,11 @@ def home():
     return render_template('home.html')
 
 
+@main.route('/about')
+def about():
+    return render_template('about.html', title='About', details=PersonalDetails)
+
+
 @main.route('/technical')
 def technical():
     Technical.certificates.sort(key=lambda x: datetime.strptime(x.date, '%d-%m-%Y'), reverse=True)

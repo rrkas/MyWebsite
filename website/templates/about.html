@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+{% block content %}
+<style>
+    .item{
+        color: indigo;
+        font-weight: 700;
+    }
+</style>
+<h1 style="margin-top: 20px;">{{ details.name }}</h1>
+<div class="row">
+    <div class="col-12 col-md-6">
+        <h3 class="mt-5">General</h3>
+        <div class="mt-2 mb-2 item"><i class="fas fa-birthday-cake mr-3"></i> {{ details.dob }}</div>
+        <div class="mt-2 mb-2 item"><i class="fa fa-home mr-3"></i>{{ details.residence }}</div>
+        <div class="mt-2 mb-2 item"><i class="fa fa-envelope mr-3"></i><a target="_blank" href="mailto:{{ details.mail_id }}" class="item item-url">{{ details.mail_id }}</a></div>
+        <div class="mt-2 mb-2 item"><i class="fab fa-github mr-3"></i><a target="_blank" href="{{ details.github }}" class="item item-url">{{ details.github }}</a></div>
+        <div class="mt-2 mb-2 item"><i class="fab fa-linkedin mr-3"></i><a target="_blank" href="{{ details.linkedin }}" class="item item-url">{{ details.linkedin }}</a></div>
+    </div>
+    <div class="col-12 col-md-6">
+        <h3 class="mt-5">Education</h3>
+        {% for edu in details.education %}
+            <div class="item-box">
+                <span style="display: flex;">
+                    <div style="flex-grow: 1;">
+                        <div class="item">{{ edu.school }}</div>
+                        <div style="font-weight: 600; color: #888888;">{{ edu.address }}</div>
+                        <div style="font-weight: 700; color: green;">{{ edu.score }}%</div>
+                    </div>
+                    <div style="width: 100px;text-align: right;">
+                        <div style="font-weight: 600;">{{ edu.std }}</div>
+                        <div style="font-weight: 600; color: black;">{{ edu.year }}</div>
+                    </div>
+                </span>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="col-12 col-md-6">
+        <h3 class="mt-5">Additional</h3>
+        <div>
+            <span style="display: flex;">
+                <div class="item" style="width: 100px;">Qwiklabs</div>
+                <div class="item" style="flex: 1;"><a class="item-url item" href="{{ details.qwiklabs }}">{{ details.qwiklabs }}</a></div>
+            </span>
+        </div>
+        <div>
+            <span style="display: flex;">
+                <div class="item" style="width: 100px;">Hobbies</div>
+                <div class="item" style="flex: 1;">
+                    <ul style="padding-left: 15px;">
+                        {% for hobby in details.hobbies %}
+                            <li>{{ hobby }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </span>
+        </div>
+        <div>
+            <span style="display: flex;">
+                <div class="item" style="width: 100px;">Sports</div>
+                <div class="item" style="flex: 1">{{ details.sports }}</div>
+            </span>
+        </div>
+    </div>
+</div>
+<div style="height: 30px"></div>
+{% endblock %}
