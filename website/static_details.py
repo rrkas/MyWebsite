@@ -263,7 +263,7 @@ class Technical:
             url='https://drive.google.com/file/d/1OOZq73deaJrMVNiNO4eRTPCu7D-UjVMO/preview?usp=drivesdk',
         ),
         Certificate(
-            url='https://drive.google.com/file/d/1cenLYhNJWVyJ5gXWUELNTAVTL31jMp1N/view?usp=sharing',
+            url='https://drive.google.com/file/d/1cenLYhNJWVyJ5gXWUELNTAVTL31jMp1N/preview?usp=drivesdk',
             issuer='Cisco Networking Academy',
             date='03-05-2021',
             name='CCNAv7: Introduction to Networks',
