@@ -236,32 +236,39 @@ class Technical:
         ),
         Certificate(
             issuer='Cisco Networking Academy',
-            type=CertificateType.INTERNSHIP,
+            type=CertificateType.COURSE,
             date='23-04-2021',
             name='Cybersecurity Essentials',
             url='https://drive.google.com/file/d/1UTAA-l4Rcgj1RzIrqW-WH5AeHzZnZc8y/preview?usp=drivesdk',
         ),
         Certificate(
             issuer='Cisco Networking Academy',
-            type=CertificateType.INTERNSHIP,
+            type=CertificateType.COURSE,
             date='23-04-2021',
             name='Introduction to Cybersecurity',
             url='https://drive.google.com/file/d/1XQxYHHQUgbPtY5mV6Ixc9XQZb72GNAUx/preview?usp=drivesdk',
         ),
         Certificate(
             issuer='Cisco Networking Academy',
-            type=CertificateType.INTERNSHIP,
+            type=CertificateType.COURSE,
             date='30-03-2021',
             name='Introduction to Packet Tracer',
             url='https://drive.google.com/file/d/1UpTJ5_0f_cfXWO6Gft06qmqZkJciYX8Z/preview?usp=drivesdk',
         ),
         Certificate(
             issuer='OpenEDG Python Institute (Cisco)',
-            type=CertificateType.INTERNSHIP,
+            type=CertificateType.COURSE,
             date='13-03-2021',
             name='Programming Essentials in Python (PCAP)',
             url='https://drive.google.com/file/d/1OOZq73deaJrMVNiNO4eRTPCu7D-UjVMO/preview?usp=drivesdk',
         ),
+        Certificate(
+            url='https://drive.google.com/file/d/1cenLYhNJWVyJ5gXWUELNTAVTL31jMp1N/view?usp=sharing',
+            issuer='Cisco Networking Academy',
+            date='03/05/2021',
+            name='CCNAv7: Introduction to Networks',
+            type=CertificateType.COURSE,
+        )
     ]
     experiences = [
         Experience(
