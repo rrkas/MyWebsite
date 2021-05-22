@@ -265,7 +265,7 @@ class Technical:
         Certificate(
             url='https://drive.google.com/file/d/1cenLYhNJWVyJ5gXWUELNTAVTL31jMp1N/view?usp=sharing',
             issuer='Cisco Networking Academy',
-            date='03/05/2021',
+            date='03-05-2021',
             name='CCNAv7: Introduction to Networks',
             type=CertificateType.COURSE,
         )
