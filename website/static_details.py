@@ -360,7 +360,16 @@ class Projects:
             desc='This project aims at serving as a blog to a community. '
                  'Here users can register and login and send blogs. Users can edit and delete their blogs.'
         ),
-
+        Project(
+            name='Images to PDF',
+            url='https://rrka4imagestopdf.herokuapp.com/',
+            type=ProjectType.PRACTICE,
+            date='22-05-2021',
+            techUsed=['Python', 'Flask', 'Pillow'],
+            domain='Web App',
+            desc='This project aims at converting images to PDF. '
+                 'This app can be found useful while making document of assignments, reports, etc which are in image formats.',
+        ),
     ]
 
     @staticmethod
