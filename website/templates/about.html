@@ -15,10 +15,10 @@
         <h3 class="mt-5">General</h3>
         <div class="mt-2 mb-2 item"><i class="fas fa-birthday-cake mr-3"></i> {{ details.dob }}</div>
         <div class="mt-2 mb-2 item"><i class="fa fa-home mr-3"></i>{{ details.residence }}</div>
-        <div class="mt-2 mb-2 item"><i class="fa fa-phone mr-3"></i><a target="_blank" href="tel:{{ details.phone }}" class="item item-url">{{ details.phone }}</a></div>
-        <div class="mt-2 mb-2 item"><i class="fa fa-envelope mr-3"></i><a target="_blank" href="mailto:{{ details.mail_id }}" class="item item-url">{{ details.mail_id }}</a></div>
-        <div class="mt-2 mb-2 item"><i class="fab fa-github mr-3"></i><a target="_blank" href="{{ details.github }}" class="item item-url">{{ details.github }}</a></div>
-        <div class="mt-2 mb-2 item"><i class="fab fa-linkedin mr-3"></i><a target="_blank" href="{{ details.linkedin }}" class="item item-url">{{ details.linkedin }}</a></div>
+        <div class="mt-2 mb-2"><i class="fa fa-phone mr-3 item"></i><a target="_blank" href="tel:{{ details.phone }}" class="item-url">{{ details.phone }}</a></div>
+        <div class="mt-2 mb-2"><i class="fa fa-envelope mr-3 item"></i><a target="_blank" href="mailto:{{ details.mail_id }}" class="item-url">{{ details.mail_id }}</a></div>
+        <div class="mt-2 mb-2"><i class="fab fa-github mr-3 item"></i><a target="_blank" href="{{ details.github }}" class="item-url">{{ details.github }}</a></div>
+        <div class="mt-2 mb-2"><i class="fab fa-linkedin mr-3 item"></i><a target="_blank" href="{{ details.linkedin }}" class="item-url">{{ details.linkedin }}</a></div>
     </div>
     <div class="col-12 col-md-6">
         <h3 class="mt-5">Education</h3>
@@ -42,13 +42,13 @@
         <h3 class="mt-5">Additional</h3>
         <div>
             <span style="display: flex;">
-                <div class="item additional-label">Qwiklabs</div>
-                <div class="item ml-3" style="flex: 1;"><a class="item-url item" href="{{ details.qwiklabs }}">{{ details.qwiklabs }}</a></div>
+                <div class="additional-label">Qwiklabs</div>
+                <div class="ml-3" style="flex: 1;"><a class="item-url" href="{{ details.qwiklabs }}">Qwiklabs Public Profile</a></div>
             </span>
         </div>
         <div>
             <span style="display: flex;">
-                <div class="item additional-label">Hobbies</div>
+                <div class="additional-label">Hobbies</div>
                 <div class="item ml-3" style="flex: 1;">
                     <ul style="padding-left: 15px;">
                         {% for hobby in details.hobbies %}
@@ -60,7 +60,7 @@
         </div>
         <div>
             <span style="display: flex;">
-                <div class="item additional-label">Sports</div>
+                <div class="additional-label">Sports</div>
                 <div class="item ml-3" style="flex: 1">{{ details.sports }}</div>
             </span>
         </div>

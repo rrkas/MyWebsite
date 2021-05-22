@@ -263,20 +263,50 @@ class Technical:
             url='https://drive.google.com/file/d/1OOZq73deaJrMVNiNO4eRTPCu7D-UjVMO/preview?usp=drivesdk',
         ),
     ]
-    experience = [
+    experiences = [
         Experience(
             name='Flutter Mobile App Intern',
             type=CertificateType.INTERNSHIP,
-            months=2,
+            weeks=8,
             place='PriME Technology PVT Ltd.',
-            date=''
-        )
+            date='16-09-2020',
+            techs=['Flutter', 'Firebase', 'Dart', 'DS-Algo']
+        ),
+        Experience(
+            name='Flutter Mobile App Intern',
+            type=CertificateType.INTERNSHIP,
+            weeks=4,
+            place='PriME Technology PVT Ltd.',
+            date='02-01-2021',
+            techs=['Flutter', 'Firebase', 'Dart', 'DS-Algo']
+        ),
+        Experience(
+            name='HactoberFest 2020',
+            type=CertificateType.OPEN_SOURCE,
+            weeks=4,
+            place='DigitalOcean',
+            date='30-10-2020',
+            techs=['Flutter']
+        ),
+        Experience(
+            name='Core Java Student Intern',
+            type=CertificateType.INTERNSHIP,
+            weeks=4,
+            place='Central Tool Room and Training Centre (CTTC)',
+            date='29-06-2019',
+            techs=['Java']
+        ),
     ]
 
     @staticmethod
     def get_certificates():
         Technical.certificates.sort(key=lambda x: datetime.strptime(x.date, '%d-%m-%Y'), reverse=True)
         return Technical.certificates
+
+    @staticmethod
+    def get_experiences():
+        Technical.experiences.sort(key=lambda x: datetime.strptime(x.date, '%d-%m-%Y'), reverse=True)
+        return Technical.experiences
 
 
 class Projects:
@@ -322,7 +352,8 @@ class Projects:
             domain='Web App',
             desc='This project aims at serving as a blog to a community. '
                  'Here users can register and login and send blogs. Users can edit and delete their blogs.'
-        )
+        ),
+
     ]
 
     @staticmethod

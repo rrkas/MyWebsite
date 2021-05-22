@@ -46,12 +46,16 @@ class Skill:
 
 
 class Experience:
-    def __init__(self, name: str, months: int, place: str, type: CertificateType, date: str):
+    def __init__(self, name: str = None, weeks: int = None,
+                 place: str = None, type: CertificateType = None,
+                 date: str = None, techs: List[str] = []
+                 ):
         self.name = name
-        self.months = months
+        self.weeks = weeks
         self.place = place
         self.type = type
         self.date = date
+        self.techs = techs
 
 
 class ProjectType:

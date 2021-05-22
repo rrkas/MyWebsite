@@ -61,6 +61,11 @@ a.poem-title{
   font-size: 22px;
 }
 
+.item-url{
+  color: #d2691e;
+  font-weight: 600;
+}
+
 a.item-url:hover{
   color: blue;
   text-decoration: none;
