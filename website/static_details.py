@@ -12,6 +12,7 @@ class PersonalDetails:
     github = 'https://github.com/rrkas'
     linkedin = 'https://www.linkedin.com/in/rohnak-agarwal-5558391a0/'
     qwiklabs = 'https://google.qwiklabs.com/public_profiles/4b318807-5a88-4858-8fd1-3230f22b21d3'
+    credly = 'https://www.credly.com/users/rohnak-agarwal/badges'
     hobbies = ['Poems', 'Coding']
     sports = 'Badminton'
     education = [
@@ -185,6 +186,14 @@ class Technical:
         Skill('Java', 'skills/java.png', 3),
     ]
     certificates = [
+        Certificate(
+            issuer='SAP SE',
+            type=CertificateType.COURSE,
+            url='https://www.credly.com/badges/ea41087e-4923-4be1-a815-4e1d212d3686',
+            date='23-05-2021',
+            name='SAP Certified Development Associate - ABAP with SAP NetWeaver 7.50',
+            viewableURL='https://images.credly.com/size/340x340/images/054895c0-baf6-40f1-a461-ba073bcd2e50/110.SAPCertifiedDevelopmentAssociateABAPwithSAPNetWeaver7.50.png',
+        ),
         Certificate(
             issuer='Coursera',
             type=CertificateType.COURSE,

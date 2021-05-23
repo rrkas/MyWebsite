@@ -1,8 +1,12 @@
 {% extends "layout.html" %}
 {% block content %}
     <h1>{{ cert.name }}</h1>
-        <div style="text-align: center;">
-            <iframe src="{{ cert.url }}" width="80%"  height="600px" frameborder="0"></iframe>
-        </div>
+    <div class="pt-2 pb-2">
+        <a class="item-url" href="{{ cert.url }}" target="_blank">Click Here for more details</a>
+    </div>
+    <div style="text-align: center; margin-left: 20px; margin-right: 20px;">
+<!--        width="80%"  height="600px"-->
+            <iframe src="{{ cert.viewableURL }}" width="100%" height="500vw" frameborder="0"></iframe>
+    </div>
     <div style="height: 30px;"></div>
 {% endblock %}

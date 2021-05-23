@@ -30,12 +30,16 @@ class CertificateType:
 
 
 class Certificate:
-    def __init__(self, issuer: str, url: str, date: str, type: CertificateType, name: str):
+    def __init__(self, issuer: str, url: str, date: str, type: CertificateType, name: str, viewableURL: str = None):
         self.issuer = issuer
         self.url = url
         self.date = date
         self.type = type
         self.name = name
+        if viewableURL:
+            self.viewableURL = viewableURL
+        elif 'drive.google.com' in self.url:
+            self.viewableURL = self.url
 
 
 class Skill:
