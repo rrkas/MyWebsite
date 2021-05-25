@@ -189,10 +189,10 @@ class Technical:
         Certificate(
             issuer='SAP SE',
             type=CertificateType.COURSE,
-            url='https://www.credly.com/badges/ea41087e-4923-4be1-a815-4e1d212d3686',
+            url='https://drive.google.com/file/d/14I2e3-p35aufVhZPiYCF8uxar4Iy-Kqq/preview?usp=drivesdk',
             date='23-05-2021',
             name='SAP Certified Development Associate - ABAP with SAP NetWeaver 7.50',
-            viewableURL='https://images.credly.com/size/340x340/images/054895c0-baf6-40f1-a461-ba073bcd2e50/110.SAPCertifiedDevelopmentAssociateABAPwithSAPNetWeaver7.50.png',
+            # viewableURL='https://images.credly.com/size/340x340/images/054895c0-baf6-40f1-a461-ba073bcd2e50/110.SAPCertifiedDevelopmentAssociateABAPwithSAPNetWeaver7.50.png',
         ),
         Certificate(
             issuer='Coursera',
