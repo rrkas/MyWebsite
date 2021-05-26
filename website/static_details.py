@@ -26,6 +26,7 @@ class PersonalDetails:
         Education('Class 12', 'D.A.V. Public School', 'CDA-6, Cuttack', 2018, '92.40'),
         Education('Class 10', 'D.A.V. Public School', 'CDA-6, Cuttack', 2016, '95.00'),
     ]
+    cv_url = 'https://drive.google.com/file/d/1de6yfphsCfx-hk00YARN6X1sfWWXn1ya/preview?usp=drivesdk'
 
 
 class PoemData:

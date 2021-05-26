@@ -57,6 +57,10 @@ def poem(p_id: int):
     return render_template('certificate_poem.html', title='Poem', cert=p)
 
 
+@main.route('/cv')
+def cv():
+    return render_template('cv.html', title='CV', url=PersonalDetails.cv_url)
+
 # ======================== error handlers ===========================
 
 @main.app_errorhandler(404)
