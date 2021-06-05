@@ -40,9 +40,22 @@
                     <div class="col-6" style="color: green;font-weight: 700;">{{ project.domain }}</div>
                 </div>
             </div>
-            <div class="mt-3 ml-2">
-                {% if project.url %}
-                    <a class="item-url" href="{{ project.url }}" target="_blank">View End Product</a>
+            <div class="row">
+                <div class="col-6 col-md-6">
+                    <div class="mt-3">
+                        {% if project.url %}
+                            <a class="item-url" href="{{ project.url }}" target="_blank">View End Product</a>
+                        {% endif %}
+                    </div>
+                </div>
+                {% if project.sourceURL %}
+                    <div class="col-6 col-md-6">
+                        <div class="mt-3" style="text-align:right;">
+                            {% if project.url %}
+                                <a class="item-url" href="{{ project.sourceURL }}" target="_blank">Source Code</a>
+                            {% endif %}
+                        </div>
+                    </div>
                 {% endif %}
             </div>
         </div>

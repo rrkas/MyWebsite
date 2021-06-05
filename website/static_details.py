@@ -188,6 +188,13 @@ class Technical:
     ]
     certificates = [
         Certificate(
+            issuer='Cisco Networking Academy',
+            type=CertificateType.COURSE,
+            name='DevNet Associate',
+            date='28-05-2021',
+            url='https://drive.google.com/file/d/1p4hTkd_A6uj2-eETRkI-FEw-bwJT_xTI/preview?usp=drivesdk'
+        ),
+        Certificate(
             issuer='SAP SE',
             type=CertificateType.COURSE,
             url='https://drive.google.com/file/d/14I2e3-p35aufVhZPiYCF8uxar4Iy-Kqq/preview?usp=drivesdk',
@@ -368,7 +375,8 @@ class Projects:
             techUsed=['Python', 'Flask', 'SQLite'],
             domain='Web App',
             desc='This project aims at serving as a blog to a community. '
-                 'Here users can register and login and send blogs. Users can edit and delete their blogs.'
+                 'Here users can register and login and send blogs. Users can edit and delete their blogs.',
+            sourceURL='https://github.com/rrkas/PythonFlaskBlog',
         ),
         Project(
             name='Images to PDF',
@@ -378,7 +386,9 @@ class Projects:
             techUsed=['Python', 'Flask', 'Pillow'],
             domain='Web App',
             desc='This project aims at converting images to PDF. '
-                 'This app can be found useful while making document of assignments, reports, etc which are in image formats.',
+                 'This app can be found useful while making document '
+                 'of assignments, reports, etc which are in image formats.',
+            sourceURL='https://github.com/rrkas/ImgToPdfFlask',
         ),
     ]
 

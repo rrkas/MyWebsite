@@ -35,7 +35,7 @@ def certificate(c_id: int):
     if not c_id or c_id > len(Technical.certificates):
         abort(404)
     cert = Technical.get_certificates()[c_id - 1]
-    return render_template('certificate_poem.html', title='Certificate', cert=cert)
+    return render_template('certificate_poem.html', title='Certificate', cert=cert, poem=False)
 
 
 @main.route('/projects')
@@ -54,7 +54,7 @@ def poem(p_id: int):
     if not p_id or p_id > Poem.count:
         abort(404)
     p = PoemData.get_poem_by_id(p_id)
-    return render_template('certificate_poem.html', title='Poem', cert=p)
+    return render_template('certificate_poem.html', title='Poem', cert=p, poem=True)
 
 
 @main.route('/cv')

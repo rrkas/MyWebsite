@@ -73,6 +73,7 @@ class Project:
                  name: str = '', desc: str = '',
                  url: str = None, date: str = None, techUsed: List[str] = None,
                  type: ProjectType = None, domain=None, image_url=None,
+                 sourceURL=None,
                  ):
         self.name = name
         self.desc = desc
@@ -82,3 +83,4 @@ class Project:
         self.type = type
         self.domain = domain
         self.image_url = image_url
+        self.sourceURL=sourceURL
