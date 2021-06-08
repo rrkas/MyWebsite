@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1>{{ data[0].standard }}</h1>
+{% for d in data %}
+<div class="item-box">
+    <div style="display:flex;">
+        <div style="flex:1;"><b>{{ d.name }}</b></div>
+        <div>Language: <b>{{ d.language }}</b></div>
+    </div>
+    {% if d.branch %}
+    <div>Branch: <b>{{ d.branch }}</b></div>
+    {% endif %}
+    <div style="display:flex;">
+        <div style="flex:1;">{{ d.subject }}</div>
+        <div>Type: <b>{{ d.type }}</b></div>
+    </div>
+    <div>Source: <b>{{ d.source }}</b></div>
+    <div>
+        <a href="{{ d.link }}" target="_blank" style="font-weight: 500;" class="item-url">
+            Click Here To View
+        </a>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}

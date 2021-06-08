@@ -51,7 +51,7 @@
                     </span>
                 </span>
                 <div style="font-weight: 600;color: #666666;">{{ cert.type }}</div>
-                <a style="font-size: 14px;" class="item-url" href="{{ url_for('main.certificate', c_id=loop.index) }}">View Document</a>
+                <a style="font-size: 14px;" class="item-url" href="{{ url_for('technical_project.certificate', c_id=loop.index) }}">View Document</a>
             </div>
         </div>
     {% endfor %}

@@ -21,16 +21,14 @@ class Education:
         self.score = score
 
 
-class CertificateType:
+class Certificate:
     COURSE = 'Course'
     INTERNSHIP = 'Internship'
     PROJECT = 'Project'
     OPEN_SOURCE = 'Open Source'
     WORKSHOP = 'Workshop'
 
-
-class Certificate:
-    def __init__(self, issuer: str, url: str, date: str, type: CertificateType, name: str, viewableURL: str = None):
+    def __init__(self, issuer: str, url: str, date: str, type: str, name: str, viewableURL: str = None):
         self.issuer = issuer
         self.url = url
         self.date = date
@@ -51,28 +49,26 @@ class Skill:
 
 class Experience:
     def __init__(self, name: str = None, weeks: int = None,
-                 place: str = None, type: CertificateType = None,
-                 date: str = None, techs: List[str] = []
+                 place: str = None, type: str = None,
+                 date: str = None, techs: List[str] = None
                  ):
         self.name = name
         self.weeks = weeks
         self.place = place
         self.type = type
         self.date = date
-        self.techs = techs
+        self.techs = techs or []
 
 
-class ProjectType:
+class Project:
     OPEN_SOURCE = 'Open Source'
     INTERNSHIP = 'Internship'
     PRACTICE = 'Practice'
 
-
-class Project:
     def __init__(self,
                  name: str = '', desc: str = '',
                  url: str = None, date: str = None, techUsed: List[str] = None,
-                 type: ProjectType = None, domain=None, image_url=None,
+                 type: str = None, domain=None, image_url=None,
                  sourceURL=None,
                  ):
         self.name = name
@@ -83,4 +79,41 @@ class Project:
         self.type = type
         self.domain = domain
         self.image_url = image_url
-        self.sourceURL=sourceURL
+        self.sourceURL = sourceURL
+
+
+class StudyMaterial:
+    # type
+    BOOK = 'Book'
+    NOTE = 'Notes'
+    QUESTION_PAPER = 'Question Paper'
+    SYLLABUS = 'Syllabus'
+
+    # language
+    ENGLISH = 'English'
+    HINDI = 'Hindi'
+    URDU = 'Urdu'
+
+    def __init__(self, name: str = None, link: str = None,
+                 standard: str = None, type: str = None,
+                 subject: str = None, branch: str = None,
+                 language=None, source=None,
+                 ):
+        self.name = name
+        self.link = link
+        self.standard = standard
+        self.type = type
+        self.subject = subject
+        self.branch = branch
+        self.language = language
+        self.source = source
+
+
+class MaterialSummary:
+    def __init__(self, standard=None, books=None, notes=None, questions=None, subjects=None, languages=None):
+        self.standard = standard
+        self.books = books
+        self.notes = notes
+        self.questions = questions
+        self.subjects = subjects
+        self.languages = languages

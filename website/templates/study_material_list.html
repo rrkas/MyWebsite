@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1 class="mb-5">Study Material</h1>
+<div class="row">
+    {% for class in summary %}
+        <div class="col-12 col-md-6">
+            <div class="item-box">
+                <a href="{{ url_for('materials_bp.materials_std', std=class.standard) }}" style="font-weight: 500;" class="item-url"><b>{{ class.standard }}</b></a>
+                <div>{{ class.books }} Books</div>
+                {% if class.notes > 0 %}<div>{{ class.notes }} Notes</div>{% endif %}
+                {% if class.questions > 0 %}<div>{{ class.questions }} Question Papers</div>{% endif %}
+                <div class="row mt-3">
+                    <div class="col-6">
+                        <b>Subjects</b><br>
+                        {% for subject in class.subjects %}
+                            <div>{{ subject }}</div>
+                        {% endfor %}
+                    </div>
+                    <div class="col-6">
+                        <div style="text-align:right;"><b>Languages</b><br></div>
+                        {% for lang in class.languages %}
+                            <div style="text-align:right;">{{ lang }}</div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
