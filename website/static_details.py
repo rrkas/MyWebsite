@@ -294,7 +294,7 @@ class Technical:
             weeks=8,
             place='PriME Technology PVT Ltd.',
             date='16-09-2020',
-            techs=['Flutter', 'Firebase', 'Dart', 'DS-Algo']
+            techs=['Flutter', 'Firebase', 'Dart']
         ),
         Experience(
             name='Flutter Mobile App Intern',
@@ -302,7 +302,7 @@ class Technical:
             weeks=4,
             place='PriME Technology PVT Ltd.',
             date='02-01-2021',
-            techs=['Flutter', 'Firebase', 'Dart', 'DS-Algo']
+            techs=['Flutter', 'Firebase', 'Dart']
         ),
         Experience(
             name='HactoberFest 2020',
@@ -343,6 +343,8 @@ class Projects:
             techUsed=['Flutter', 'Firebase', 'Dart'],
             desc='This project was aimed to design a safety monitoring and feedback.',
             domain='Mobile App',
+            features=['Google Login', 'Process Flow', 'Monitoring and feedback', 'Report Generation (excel)',
+                      'Distributed access to different level of users'],
             image_url='https://play-lh.googleusercontent.com/grAVOkieIxLWIeho-EQ7V7_qfO7lxnYKoYr5MWYbkk-aJG5uYVoV77GnpajVgd9X8c8=s180-rw'
         ),
         Project(
@@ -353,6 +355,8 @@ class Projects:
             techUsed=['Flutter', 'Firebase', 'Dart'],
             desc='This project was aimed to design a process-flow, review and feedback.',
             domain='Mobile App',
+            features=['Google Login', 'Process Flow', 'Monitoring and feedback', 'Report Generation (excel)',
+                      'Distributed access to different level of users'],
             image_url='https://play-lh.googleusercontent.com/aXI4e6dfNht3fCbwwBWSjfVBPmbwRpuVoQrRAvyZZMnslvOpnpgcpnWIfBEEXzF4a1o=s180-rw'
         ),
         Project(
@@ -365,6 +369,17 @@ class Projects:
                  'It is currently being used by the students. '
                  'This app provides all information about courses, scholarships, map of college and room arrangements.',
             domain='Mobile App',
+            features=[
+                'Google Login',
+                'Distributed access to different level of users',
+                'Campus Map with live location of user and landmarks',
+                'Complain register',
+                'Clubs and groups of college',
+                'ChatBot and CommandBot',
+                'Visitor\'s login',
+                'Courses, Placements, Scholarships, Digital libraries',
+                'Visitor Pass generation and approval',
+            ],
             image_url='https://play-lh.googleusercontent.com/WDOfe5xQjRtZpuCEEl03I9en7vk8vmlQQeZdnBe6zDwT7tXTYuZKXurdood3ecLh4Q=s180-rw'
         ),
         Project(
@@ -372,8 +387,9 @@ class Projects:
             url='https://rrka3flaskblog.herokuapp.com/',
             type=Project.PRACTICE,
             date='19-05-2021',
-            techUsed=['Python', 'Flask', 'SQLite'],
+            techUsed=['Python', 'Flask', 'SQLite', 'HTML', 'CSS'],
             domain='Web App',
+            features=['User register/login', 'Post CRUD', 'User Profile', 'Pagination'],
             desc='This project aims at serving as a blog to a community. '
                  'Here users can register and login and send blogs. Users can edit and delete their blogs.',
             sourceURL='https://github.com/rrkas/PythonFlaskBlog',
@@ -383,18 +399,32 @@ class Projects:
             url='https://rrka4imagestopdf.herokuapp.com/',
             type=Project.PRACTICE,
             date='22-05-2021',
-            techUsed=['Python', 'Flask', 'Pillow'],
+            techUsed=['Python', 'Flask', 'HTML', 'CSS'],
             domain='Web App',
+            features=['Image to PDF', 'Space efficient'],
             desc='This project aims at converting images to PDF. '
                  'This app can be found useful while making document '
                  'of assignments, reports, etc which are in image formats.',
             sourceURL='https://github.com/rrkas/ImgToPdfFlask',
+        ),
+        Project(
+            name='PDF Master',
+            date='12-06-2021',
+            type=Project.PRACTICE,
+            url='https://rrka6pdfmaster.herokuapp.com/',
+            sourceURL='https://github.com/rrkas/PdfMaster',
+            techUsed=['Django', 'Python', 'HTML', 'CSS', 'JS'],
+            domain='Web App',
+            desc='A web app for manipulating and operating on PDFs. Features: PDF Merge, Images to PDF',
+            features=['Merge multiple PDFs', 'Convert Images to PDF', 'Space efficient']
         ),
     ]
 
     @staticmethod
     def get_projects():
         Projects.projects.sort(key=lambda x: datetime.strptime(x.date, '%d-%m-%Y'), reverse=True)
+        for project in Projects.projects:
+            project.features.sort()
         return Projects.projects
 
 

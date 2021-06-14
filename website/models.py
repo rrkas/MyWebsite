@@ -67,19 +67,20 @@ class Project:
 
     def __init__(self,
                  name: str = '', desc: str = '',
-                 url: str = None, date: str = None, techUsed: List[str] = None,
-                 type: str = None, domain=None, image_url=None,
-                 sourceURL=None,
+                 url: str = '', date: str = None, techUsed=None,
+                 type=None, domain='', image_url=None,
+                 sourceURL=None, features=None,
                  ):
         self.name = name
         self.desc = desc
         self.url = url
         self.date = date
-        self.techUsed = techUsed
+        self.techUsed = techUsed or []
         self.type = type
         self.domain = domain
         self.image_url = image_url
         self.sourceURL = sourceURL
+        self.features = features or []
 
 
 class StudyMaterial:
