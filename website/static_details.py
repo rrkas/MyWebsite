@@ -26,7 +26,7 @@ class PersonalDetails:
         Education('Class-12', 'D.A.V. Public School', 'CDA-6, Cuttack', 2018, '92.40'),
         Education('Class-10', 'D.A.V. Public School', 'CDA-6, Cuttack', 2016, '95.00'),
     ]
-    cv_url = 'https://drive.google.com/file/d/1de6yfphsCfx-hk00YARN6X1sfWWXn1ya/preview?usp=drivesdk'
+    cv_url = 'https://drive.google.com/file/d/1P22vMgAFCZf6H01rAoJX15y2QfAplfAn/preview?usp=drivesdk'
 
 
 class PoemData:
@@ -178,8 +178,8 @@ class Technical:
     skills = [
         Skill('Python', 'skills/py.png', 4),
         Skill('Flutter', 'skills/flutter.png', 4),
-        Skill('Golang', 'skills/go.png', 3),
         Skill('Flask', 'skills/flask.png', 3),
+        Skill('Golang', 'skills/go.png', 3),
         Skill('Android', 'skills/android.png', 3),
         Skill('Kotlin', 'skills/kt.png', 3),
         Skill('C-Language', 'skills/c.png', 3),
