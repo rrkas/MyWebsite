@@ -22,13 +22,21 @@ class Education:
 
 
 class Certificate:
-    COURSE = 'Course'
-    INTERNSHIP = 'Internship'
-    PROJECT = 'Project'
-    OPEN_SOURCE = 'Open Source'
-    WORKSHOP = 'Workshop'
+    COURSE = "Course"
+    INTERNSHIP = "Internship"
+    PROJECT = "Project"
+    OPEN_SOURCE = "Open Source"
+    WORKSHOP = "Workshop"
 
-    def __init__(self, issuer: str, url: str, date: str, type: str, name: str, viewableURL: str = None):
+    def __init__(
+        self,
+        issuer: str,
+        url: str,
+        date: str,
+        type: str,
+        name: str,
+        viewableURL: str = None,
+    ):
         self.issuer = issuer
         self.url = url
         self.date = date
@@ -36,7 +44,7 @@ class Certificate:
         self.name = name
         if viewableURL:
             self.viewableURL = viewableURL
-        elif 'drive.google.com' in self.url:
+        elif "drive.google.com" in self.url:
             self.viewableURL = self.url
 
 
@@ -48,58 +56,78 @@ class Skill:
 
 
 class Experience:
-    def __init__(self, name: str = None, weeks: int = None,
-                 place: str = None, type: str = None,
-                 date: str = None, techs: List[str] = None
-                 ):
+    def __init__(
+        self,
+        name: str = None,
+        weeks: int = None,
+        place: str = None,
+        type: str = None,
+        start_date: str = None,
+        end_date: str = None,
+        techs: List[str] = None,
+    ):
         self.name = name
         self.weeks = weeks
         self.place = place
         self.type = type
-        self.date = date
+        self.end_date = end_date
+        self.start_date = start_date
         self.techs = techs or []
 
 
 class Project:
-    OPEN_SOURCE = 'Open Source'
-    INTERNSHIP = 'Internship'
-    PRACTICE = 'Practice'
+    OPEN_SOURCE = "Open Source"
+    INTERNSHIP = "Internship"
+    PRACTICE = "Practice"
 
-    def __init__(self,
-                 name: str = '', desc: str = '',
-                 url: str = '', date: str = None, techUsed=None,
-                 type=None, domain='', image_url=None,
-                 sourceURL=None, features=None,
-                 ):
+    def __init__(
+        self,
+        name: str = "",
+        desc: str = "",
+        url: str = "",
+        date: str = None,
+        tech_used=None,
+        type=None,
+        domain="",
+        image_url=None,
+        source_url=None,
+        features=None,
+    ):
         self.name = name
         self.desc = desc
         self.url = url
         self.date = date
-        self.techUsed = techUsed or []
+        self.techUsed = tech_used or []
         self.type = type
         self.domain = domain
         self.image_url = image_url
-        self.sourceURL = sourceURL
+        self.sourceURL = source_url
         self.features = features or []
 
 
 class StudyMaterial:
     # type
-    BOOK = 'Book'
-    NOTE = 'Notes'
-    QUESTION_PAPER = 'Question Paper'
-    SYLLABUS = 'Syllabus'
+    BOOK = "Book"
+    NOTE = "Notes"
+    QUESTION_PAPER = "Question Paper"
+    SYLLABUS = "Syllabus"
 
     # language
-    ENGLISH = 'English'
-    HINDI = 'Hindi'
-    URDU = 'Urdu'
+    ENGLISH = "English"
+    HINDI = "Hindi"
+    URDU = "Urdu"
 
-    def __init__(self, name: str = None, link: str = None,
-                 standard: str = None, type: str = None,
-                 subject: str = None, branch: str = None,
-                 language=None, source=None,
-                 ):
+    def __init__(
+        self,
+        name: str = None,
+        link: str = None,
+        standard: str = None,
+        type: str = None,
+        subject: str = None,
+        branch: str = None,
+        language=None,
+        source=None,
+    ):
         self.name = name
         self.link = link
         self.standard = standard
@@ -111,7 +139,15 @@ class StudyMaterial:
 
 
 class MaterialSummary:
-    def __init__(self, standard=None, books=None, notes=None, questions=None, subjects=None, languages=None):
+    def __init__(
+        self,
+        standard=None,
+        books=None,
+        notes=None,
+        questions=None,
+        subjects=None,
+        languages=None,
+    ):
         self.standard = standard
         self.books = books
         self.notes = notes

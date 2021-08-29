@@ -16,7 +16,9 @@
     {% for exper in technical.get_experiences() %}
         <div class="col-12 col-md-6">
             <div class="item-box">
-                <div style="color: #7d7d7d;font-weight: 700;">{{ exper.date }}</div>
+                <div style="color: #7d7d7d;font-weight: 700;">
+                    {{ exper.start_date }} - {% if exper.end_date%}{{ exper.end_date }}{% else %} Now {% endif %}
+                </div>
                 <div style="color: indigo;font-weight: 700;">{{ exper.name }}</div>
                 <div style="color: black;font-weight: 600;">{{ exper.place }}</div>
                 <div><b>{{ exper.weeks }} weeks</b></div>
