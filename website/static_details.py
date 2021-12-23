@@ -47,11 +47,7 @@ class PoemData:
         )
         for idx in range(len(df)):
             row = df.iloc[idx]
-            poem = Poem(
-                date=row["date"],
-                name=row["name"],
-                url=row["link"],
-            )
+            poem = Poem.from_df_row(row, f"c{idx}")
             self.collections.append(poem)
 
     def load_short_poems(self):
@@ -65,14 +61,10 @@ class PoemData:
         )
         for idx in range(len(df)):
             row = df.iloc[idx]
-            poem = Poem(
-                date=row["date"],
-                name=row["name"],
-                url=row["link"],
-            )
+            poem = Poem.from_df_row(row, f"s{idx}")
             self.short_poems.append(poem)
 
-    def get_poem_by_id(self, id: int):
+    def get_poem_by_id(self, id: str):
         poems = self.short_poems + self.collections
         poem = [p for p in poems if p.id == id]
         if len(poem) == 0:
@@ -116,13 +108,7 @@ class Technical:
         )
         for row_idx in range(len(df)):
             row = df.iloc[row_idx]
-            certificate = Certificate(
-                date=row["date"],
-                type=row["type"],
-                issuer=row["issuer"],
-                name=row["name"],
-                url=row["link"],
-            )
+            certificate = Certificate.from_df_row(row)
             self.certificates.append(certificate)
 
     def load_experiences(self):
@@ -136,20 +122,7 @@ class Technical:
         )
         for row_idx in range(len(df)):
             row = df.iloc[row_idx]
-            days = (
-                datetime(*(list(map(int, row["end_date"].split("-"))))[::-1])
-                - datetime(*(list(map(int, row["start_date"].split("-"))))[::-1])
-            ).days
-            weeks = int(round((days // 7) / 4) * 4)
-            expr = Experience(
-                start_date=row["start_date"],
-                end_date=row["end_date"],
-                type=row["type"],
-                name=row["name"],
-                place=row["place"],
-                techs=row["tech_list"].split(","),
-                weeks=weeks,
-            )
+            expr = Experience.from_df_row(row)
             self.experiences.append(expr)
 
 
@@ -169,18 +142,7 @@ class Projects:
         )
         for row_idx in range(len(df)):
             row = df.iloc[row_idx]
-            project = Project(
-                date=row["date"],
-                type=row["type"],
-                domain=row["domain"],
-                name=row["name"],
-                url=row["url"],
-                source_url=row["source_url"],
-                tech_used=row["tech_list"].split(","),
-                desc=row["desc"],
-                features=row["features"].split(";"),
-                image_url=row["image_url"] if str(row["image_url"]) != "nan" else None,
-            )
+            project = Project.from_df_row(row)
             self.projects.append(project)
 
 

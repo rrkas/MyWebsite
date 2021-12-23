@@ -1,15 +1,22 @@
+from datetime import datetime
 from typing import List
 
 
 class Poem:
-    count = 0
-
-    def __init__(self, name: str, url: str, date: str):
-        Poem.count += 1
+    def __init__(self, name: str, url: str, date: str, id: str):
         self.name = name
         self.url = url
         self.date = date
-        self.id = Poem.count
+        self.id = id
+
+    @classmethod
+    def from_df_row(cls, row, id):
+        return cls(
+            date=row["date"],
+            name=row["name"],
+            url=f'https://drive.google.com/file/d/{row["gdrive_file_id"]}/preview?usp=drivesdk',
+            id=id,
+        )
 
 
 class Education:
@@ -47,6 +54,16 @@ class Certificate:
         elif "drive.google.com" in self.url:
             self.viewableURL = self.url
 
+    @classmethod
+    def from_df_row(cls, row):
+        return cls(
+            date=row["date"],
+            type=row["type"],
+            issuer=row["issuer"],
+            name=row["name"],
+            url=f'https://drive.google.com/file/d/{row["gdrive_file_id"]}/preview?usp=drivesdk',
+        )
+
 
 class Skill:
     def __init__(self, name: str, url: str, level: int):
@@ -73,6 +90,23 @@ class Experience:
         self.end_date = end_date
         self.start_date = start_date
         self.techs = techs or []
+
+    @classmethod
+    def from_df_row(cls, row):
+        days = (
+            datetime(*(list(map(int, row["end_date"].split("-"))))[::-1])
+            - datetime(*(list(map(int, row["start_date"].split("-"))))[::-1])
+        ).days
+        weeks = int(round((days // 7) / 4) * 4)
+        return cls(
+            start_date=row["start_date"],
+            end_date=row["end_date"],
+            type=row["type"],
+            name=row["name"],
+            place=row["place"],
+            techs=row["tech_list"].split(","),
+            weeks=weeks,
+        )
 
 
 class Project:
@@ -103,6 +137,21 @@ class Project:
         self.image_url = image_url
         self.sourceURL = source_url
         self.features = features or []
+
+    @classmethod
+    def from_df_row(cls, row):
+        return cls(
+            date=row["date"],
+            type=row["type"],
+            domain=row["domain"],
+            name=row["name"],
+            url=row["url"],
+            source_url=row["source_url"],
+            tech_used=row["tech_list"].split(","),
+            desc=row["desc"],
+            features=row["features"].split(";"),
+            image_url=row["image_url"] if str(row["image_url"]) != "nan" else None,
+        )
 
 
 class StudyMaterial:
