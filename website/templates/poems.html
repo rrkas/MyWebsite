@@ -5,7 +5,7 @@
 
     <H3>Collections  ({{ poems.collections|length }})</H3>
     <div class="row">
-        {% for poem in poems.collections[::-1] %}
+        {% for poem in poems.collections %}
             <div class="col-12 col-md-6 col-lg-6">
                 <div class="item-box">
                     <div>
@@ -19,7 +19,7 @@
 
     <H3>Short Poems ({{ poems.short_poems|length }})</H3>
     <div class="row">
-        {% for poem in poems.short_poems[::-1] %}
+        {% for poem in poems.short_poems %}
             <div class="col-12 col-md-6 col-lg-6">
                 <div class="item-box">
                     <div>

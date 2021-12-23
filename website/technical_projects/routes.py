@@ -6,14 +6,16 @@ technical_project = Blueprint("technical_project", __name__)
 
 @technical_project.route("/technical")
 def technical():
-    return render_template("technical.html", title="Technical", technical=Technical)
+    technical_obj = Technical()
+    return render_template("technical.html", title="Technical", technical=technical_obj)
 
 
 @technical_project.route("/certificate/<int:c_id>")
 def certificate(c_id: int):
-    if not c_id or c_id > len(Technical.certificates):
+    technical_obj = Technical()
+    if not c_id or c_id > len(technical_obj.certificates):
         abort(404)
-    cert = Technical.get_certificates()[c_id - 1]
+    cert = technical_obj.certificates[c_id - 1]
     return render_template(
         "certificate_poem.html", title="Certificate", cert=cert, poem=False
     )
@@ -21,5 +23,7 @@ def certificate(c_id: int):
 
 @technical_project.route("/projects")
 def projects():
-    p = Projects.get_projects()
-    return render_template("projects.html", title="Projects", projects=p)
+    projects_obj = Projects()
+    return render_template(
+        "projects.html", title="Projects", projects=projects_obj.projects
+    )

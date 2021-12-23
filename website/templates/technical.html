@@ -13,7 +13,7 @@
 
 <h3 class="mt-5">Experience ({{ technical.experiences|length }})</h3>
 <div class="row">
-    {% for exper in technical.get_experiences() %}
+    {% for exper in technical.experiences %}
         <div class="col-12 col-md-6">
             <div class="item-box">
                 <div style="color: #7d7d7d;font-weight: 700;">
@@ -38,7 +38,7 @@
 
 <h3 class="mt-5">Certificates ({{ technical.certificates|length }})</h3>
 <div class="row">
-    {% for cert in technical.get_certificates() %}
+    {% for cert in technical.certificates %}
         <div class="col-12 col-md-6">
             <div class="item-box">
                 <span>
