@@ -168,6 +168,7 @@ class StudyMaterial:
 
     def __init__(
         self,
+        id: str = None,
         name: str = None,
         link: str = None,
         standard: str = None,
@@ -177,6 +178,7 @@ class StudyMaterial:
         language=None,
         source=None,
     ):
+        self.id = id
         self.name = name
         self.link = link
         self.standard = standard
@@ -185,6 +187,22 @@ class StudyMaterial:
         self.branch = branch
         self.language = language
         self.source = source
+
+    @classmethod
+    def from_df_row(cls, row, idx, is_class=True):
+        return cls(
+            id=f"b{idx}",
+            name=row["name"],
+            link=f'https://drive.google.com/file/d/{row["gdrive_file_id"]}/preview?usp=drivesdk',
+            standard=f'Class-{str(row["class"]).zfill(2)}'
+            if is_class
+            else row["class"],
+            type=row["type"],
+            subject=row["subject"],
+            branch=row["branch"] if row["branch"] else None,
+            language=row["language"],
+            source=row["source"],
+        )
 
 
 class MaterialSummary:

@@ -38,7 +38,7 @@ class PoemData:
 
     def load_collections(self):
         df = pd.read_csv(
-            "https://raw.githubusercontent.com/rrkas/MyWebsiteData/main/poem_collections.csv"
+            "https://raw.githubusercontent.com/rrkas/MyWebsiteData/main/data/poem_collections.csv"
         )
         df = df.sort_values(
             by="date",
@@ -52,7 +52,7 @@ class PoemData:
 
     def load_short_poems(self):
         df = pd.read_csv(
-            "https://raw.githubusercontent.com/rrkas/MyWebsiteData/main/poem_short.csv"
+            "https://raw.githubusercontent.com/rrkas/MyWebsiteData/main/data/poem_short.csv"
         )
         df = df.sort_values(
             by="date",
@@ -99,7 +99,7 @@ class Technical:
 
     def load_certificates(self):
         df = pd.read_csv(
-            "https://raw.githubusercontent.com/rrkas/MyWebsiteData/main/technical_certificates.csv"
+            "https://raw.githubusercontent.com/rrkas/MyWebsiteData/main/data/technical_certificates.csv"
         )
         df = df.sort_values(
             by="date",
@@ -113,7 +113,7 @@ class Technical:
 
     def load_experiences(self):
         df = pd.read_csv(
-            "https://raw.githubusercontent.com/rrkas/MyWebsiteData/main/technical_experience.csv"
+            "https://raw.githubusercontent.com/rrkas/MyWebsiteData/main/data/technical_experience.csv"
         )
         df = df.sort_values(
             by="end_date",
@@ -133,7 +133,7 @@ class Projects:
 
     def load_projects(self):
         df = pd.read_csv(
-            "https://raw.githubusercontent.com/rrkas/MyWebsiteData/main/projects.csv"
+            "https://raw.githubusercontent.com/rrkas/MyWebsiteData/main/data/projects.csv"
         )
         df = df.sort_values(
             by="date",
@@ -147,179 +147,16 @@ class Projects:
 
 
 class StudyMaterials:
-    class1_10 = [
-        [
-            StudyMaterial(
-                name="Marigold",
-                type=StudyMaterial.BOOK,
-                subject="English",
-                link="https://drive.google.com/file/d/1bSKHO_5kEjULyaN-SMaWJeOr89VxNSMm/view?usp=sharing",
-                standard="Class-04",
-                language=StudyMaterial.ENGLISH,
-                source="NCERT",
-            ),
-            StudyMaterial(
-                name="Rimjhim",
-                type=StudyMaterial.BOOK,
-                subject="Hindi",
-                link="https://drive.google.com/file/d/1Xi7iVpn7pt_WFyaBOYH0C_DqhZuq1ghZ/view?usp=sharing",
-                standard="Class-04",
-                language=StudyMaterial.HINDI,
-                source="NCERT",
-            ),
-            StudyMaterial(
-                name="Ganit ka Jadoo",
-                type=StudyMaterial.BOOK,
-                subject="Maths",
-                link="https://drive.google.com/file/d/12i0odfIW20OSFLc_LuOfmma135Y2MY57/view?usp=sharing",
-                standard="Class-04",
-                language=StudyMaterial.HINDI,
-                source="NCERT",
-            ),
-            StudyMaterial(
-                name="Math Magic",
-                type=StudyMaterial.BOOK,
-                subject="Maths",
-                link="https://drive.google.com/file/d/1Pq64napVsSiO8U1AIk4IfvLUq6kutIpJ/view?usp=sharing",
-                standard="Class-04",
-                language=StudyMaterial.ENGLISH,
-                source="NCERT",
-            ),
-            StudyMaterial(
-                name="Aas Paas",
-                type=StudyMaterial.BOOK,
-                subject="Environmental Studies",
-                link="https://drive.google.com/file/d/1sQQpaRVMBzVwz3uB17JwsK56XuuUy7wQ/view?usp=sharing",
-                standard="Class-04",
-                language=StudyMaterial.HINDI,
-                source="NCERT",
-            ),
-            StudyMaterial(
-                name="Looking Around",
-                type=StudyMaterial.BOOK,
-                subject="Environmental Studies",
-                link="https://drive.google.com/file/d/1Xi7iVpn7pt_WFyaBOYH0C_DqhZuq1ghZ/view?usp=sharing",
-                standard="Class-04",
-                language=StudyMaterial.ENGLISH,
-                source="NCERT",
-            ),
-            StudyMaterial(
-                name="Riyazi ka Jadoo",
-                type=StudyMaterial.BOOK,
-                subject="Maths",
-                link="https://drive.google.com/file/d/1x4e86EJm63kg9HzPWpu76GnDq9xFSn-D/view?usp=sharing",
-                standard="Class-04",
-                language=StudyMaterial.URDU,
-                source="NCERT",
-            ),
-            StudyMaterial(
-                name="Aas Paas (Urdu)",
-                type=StudyMaterial.BOOK,
-                subject="Environmental Studies",
-                link="https://drive.google.com/file/d/1INxUGZe0Uym3Puph3RmMTbfZPi4afrQA/view?usp=sharing",
-                standard="Class-04",
-                language=StudyMaterial.URDU,
-                source="NCERT",
-            ),
-            StudyMaterial(
-                name="Ibtedai Urdu",
-                type=StudyMaterial.BOOK,
-                subject="Urdu",
-                link="https://drive.google.com/file/d/1-la7FJEpIVtFsNAdqkM5IPRDWWVj4jyH/view?usp=sharing",
-                standard="Class-04",
-                language=StudyMaterial.URDU,
-                source="NCERT",
-            ),
-        ],
-        [
-            StudyMaterial(
-                name="Marigold",
-                type=StudyMaterial.BOOK,
-                subject="English",
-                link="https://drive.google.com/file/d/1MZtAP3VE1J4qQzQ8guppSYFFQfs8Ccyn/view?usp=sharing",
-                standard="Class-05",
-                language=StudyMaterial.ENGLISH,
-                source="NCERT",
-            ),
-            StudyMaterial(
-                name="Rimjhim",
-                type=StudyMaterial.BOOK,
-                subject="Hindi",
-                link="",
-                standard="Class-05",
-                language=StudyMaterial.HINDI,
-                source="NCERT",
-            ),
-            StudyMaterial(
-                name="Ganit ka Jadoo",
-                type=StudyMaterial.BOOK,
-                subject="Maths",
-                link="https://drive.google.com/file/d/12i0odfIW20OSFLc_LuOfmma135Y2MY57/view?usp=sharing",
-                standard="Class-04",
-                language=StudyMaterial.HINDI,
-                source="NCERT",
-            ),
-            StudyMaterial(
-                name="Math Magic",
-                type=StudyMaterial.BOOK,
-                subject="Maths",
-                link="https://drive.google.com/file/d/1Pq64napVsSiO8U1AIk4IfvLUq6kutIpJ/view?usp=sharing",
-                standard="Class-04",
-                language=StudyMaterial.ENGLISH,
-                source="NCERT",
-            ),
-            StudyMaterial(
-                name="Aas Paas",
-                type=StudyMaterial.BOOK,
-                subject="Environmental Studies",
-                link="https://drive.google.com/file/d/1sQQpaRVMBzVwz3uB17JwsK56XuuUy7wQ/view?usp=sharing",
-                standard="Class-04",
-                language=StudyMaterial.HINDI,
-                source="NCERT",
-            ),
-            StudyMaterial(
-                name="Looking Around",
-                type=StudyMaterial.BOOK,
-                subject="Environmental Studies",
-                link="https://drive.google.com/file/d/1Xi7iVpn7pt_WFyaBOYH0C_DqhZuq1ghZ/view?usp=sharing",
-                standard="Class-04",
-                language=StudyMaterial.ENGLISH,
-                source="NCERT",
-            ),
-            StudyMaterial(
-                name="Riyazi ka Jadoo",
-                type=StudyMaterial.BOOK,
-                subject="Maths",
-                link="https://drive.google.com/file/d/1x4e86EJm63kg9HzPWpu76GnDq9xFSn-D/view?usp=sharing",
-                standard="Class-04",
-                language=StudyMaterial.URDU,
-                source="NCERT",
-            ),
-            StudyMaterial(
-                name="Aas Paas (Urdu)",
-                type=StudyMaterial.BOOK,
-                subject="Environmental Studies",
-                link="https://drive.google.com/file/d/1INxUGZe0Uym3Puph3RmMTbfZPi4afrQA/view?usp=sharing",
-                standard="Class-04",
-                language=StudyMaterial.URDU,
-                source="NCERT",
-            ),
-            StudyMaterial(
-                name="Ibtedai Urdu",
-                type=StudyMaterial.BOOK,
-                subject="Urdu",
-                link="https://drive.google.com/file/d/1-la7FJEpIVtFsNAdqkM5IPRDWWVj4jyH/view?usp=sharing",
-                standard="Class-04",
-                language=StudyMaterial.URDU,
-                source="NCERT",
-            ),
-        ],
-    ]
+    def __init__(self):
+        self.class01_12 = []
+        self.btech = {}
 
-    @staticmethod
-    def get_summary():
+    def load_class01_12(self):
+        pass
+
+    def get_summary(self):
         temp = []
-        for materials in StudyMaterials.get_1_10_materials():
+        for materials in self.class01_12:
             temp.append(
                 MaterialSummary(
                     standard=materials[0].standard,
@@ -356,15 +193,7 @@ class StudyMaterials:
             )
         return temp
 
-    @staticmethod
-    def get_1_10_materials():
-        temp = StudyMaterials.class1_10
-        for classx in temp:
-            classx.sort(key=lambda x: (x.standard + x.subject + x.name))
-        return temp
-
-    @staticmethod
-    def get_std_data(std: str):
+    def get_std_data(self, std: str):
         if std.startswith("Class"):
             cls = int(std.split("-")[1]) - 1
-            return StudyMaterials.get_1_10_materials()[cls]
+            return self.class01_12[cls]
