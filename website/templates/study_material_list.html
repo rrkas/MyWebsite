@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 {% block content %}
-<h1 class="mb-5">Study Material</h1>
+<h1 class="mb-2">Study Material</h1>
 <div class="row">
     {% for class in summary %}
         <div class="col-12 col-md-6">
@@ -11,13 +11,13 @@
                 {% if class.questions > 0 %}<div>{{ class.questions }} Question Papers</div>{% endif %}
                 <div class="row mt-3">
                     <div class="col-6">
-                        <b>Subjects</b><br>
+                        <b>Subjects ({{ class.subjects|length }})</b><br>
                         {% for subject in class.subjects %}
                             <div>{{ subject }}</div>
                         {% endfor %}
                     </div>
                     <div class="col-6">
-                        <div style="text-align:right;"><b>Languages</b><br></div>
+                        <div style="text-align:right;"><b>Languages ({{ class.languages|length }})</b><br></div>
                         {% for lang in class.languages %}
                             <div style="text-align:right;">{{ lang }}</div>
                         {% endfor %}

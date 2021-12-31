@@ -3,32 +3,6 @@ import pandas as pd
 from website.models import *
 
 
-class PersonalDetails:
-    name = "Rohnak Agarwal"
-    dob = "July 9, 2000"
-    residence = "Cuttack, Odisha, India"
-    mail_id = "rrka79wal@gmail.com"
-    phone = "9658600961"
-    github = "https://github.com/rrkas"
-    linkedin = "https://www.linkedin.com/in/rohnak-agarwal-5558391a0/"
-    qwiklabs = "https://google.qwiklabs.com/public_profiles/4b318807-5a88-4858-8fd1-3230f22b21d3"
-    credly = "https://www.credly.com/users/rohnak-agarwal/badges"
-    hobbies = ["Poems", "Coding"]
-    sports = "Badminton"
-    education = [
-        Education(
-            "B.Tech. (CSE)",
-            "College of Engineering and Technology (CET)",
-            "Ghatikia, Bhubaneswar",
-            2022,
-            str(round(9.44 * 9.5, 2)),
-        ),
-        Education("Class-12", "D.A.V. Public School", "CDA-6, Cuttack", 2018, "92.40"),
-        Education("Class-10", "D.A.V. Public School", "CDA-6, Cuttack", 2016, "95.00"),
-    ]
-    cv_url = "https://drive.google.com/file/d/1P22vMgAFCZf6H01rAoJX15y2QfAplfAn/preview?usp=drivesdk"
-
-
 class PoemData:
     def __init__(self):
         self.collections = []
@@ -148,15 +122,31 @@ class Projects:
 
 class StudyMaterials:
     def __init__(self):
-        self.class01_12 = []
+        self.class01_12 = {}
         self.btech = {}
 
+        self.load_class01_12()
+
     def load_class01_12(self):
-        pass
+        df = pd.read_csv(
+            "https://raw.githubusercontent.com/rrkas/MyWebsiteData/main/data/study_materials_1_12.csv"
+        )
+        df = df.sort_values(
+            by=["class", "subject", "language", "material_name"],
+            ascending=True,
+        ).reset_index()
+        for class_num in df["class"].unique():
+            materials = df[df["class"] == class_num]
+            self.class01_12[class_num] = []
+            for idx in range(len(materials)):
+                row = materials.iloc[idx]
+                material = StudyMaterial.from_df_row(row, idx)
+                self.class01_12[class_num].append(material)
 
     def get_summary(self):
         temp = []
-        for materials in self.class01_12:
+        for class_num in self.class01_12:
+            materials = self.class01_12[class_num]
             temp.append(
                 MaterialSummary(
                     standard=materials[0].standard,
@@ -195,5 +185,5 @@ class StudyMaterials:
 
     def get_std_data(self, std: str):
         if std.startswith("Class"):
-            cls = int(std.split("-")[1]) - 1
-            return self.class01_12[cls]
+            cls = int(std.split("-")[1])
+            return self.class01_12.get(cls)

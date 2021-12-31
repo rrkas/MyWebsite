@@ -20,12 +20,24 @@ class Poem:
 
 
 class Education:
-    def __init__(self, std: str, school: str, address: str, year: int, score: str):
-        self.std = std
-        self.school = school
-        self.address = address
-        self.year = year
-        self.score = score
+    def __init__(self, **kwargs):
+        self.std = kwargs.get("std")
+        self.institute = kwargs.get("institute")
+        self.address = kwargs.get("address")
+        self.start_year = kwargs.get("start_year")
+        self.end_year = kwargs.get("end_year")
+        self.score = kwargs.get("score")
+
+    @classmethod
+    def from_df_row(cls, row):
+        return cls(
+            std=row["std"],
+            start_year=row["start_year"],
+            end_year=row["end_year"],
+            institute=row["institute"],
+            address=row["address"],
+            score=row["score"],
+        )
 
 
 class Certificate:
@@ -36,13 +48,13 @@ class Certificate:
     WORKSHOP = "Workshop"
 
     def __init__(
-        self,
-        issuer: str,
-        url: str,
-        date: str,
-        type: str,
-        name: str,
-        viewableURL: str = None,
+            self,
+            issuer: str,
+            url: str,
+            date: str,
+            type: str,
+            name: str,
+            viewableURL: str = None,
     ):
         self.issuer = issuer
         self.url = url
@@ -74,14 +86,14 @@ class Skill:
 
 class Experience:
     def __init__(
-        self,
-        name: str = None,
-        weeks: int = None,
-        place: str = None,
-        type: str = None,
-        start_date: str = None,
-        end_date: str = None,
-        techs: List[str] = None,
+            self,
+            name: str = None,
+            weeks: int = None,
+            place: str = None,
+            type: str = None,
+            start_date: str = None,
+            end_date: str = None,
+            techs: List[str] = None,
     ):
         self.name = name
         self.weeks = weeks
@@ -94,8 +106,8 @@ class Experience:
     @classmethod
     def from_df_row(cls, row):
         days = (
-            datetime(*(list(map(int, row["end_date"].split("-"))))[::-1])
-            - datetime(*(list(map(int, row["start_date"].split("-"))))[::-1])
+                datetime(*(list(map(int, row["end_date"].split("-"))))[::-1])
+                - datetime(*(list(map(int, row["start_date"].split("-"))))[::-1])
         ).days
         weeks = int(round((days // 7) / 4) * 4)
         return cls(
@@ -115,17 +127,17 @@ class Project:
     PRACTICE = "Practice"
 
     def __init__(
-        self,
-        name: str = "",
-        desc: str = "",
-        url: str = "",
-        date: str = None,
-        tech_used=None,
-        type=None,
-        domain="",
-        image_url=None,
-        source_url=None,
-        features=None,
+            self,
+            name: str = "",
+            desc: str = "",
+            url: str = "",
+            date: str = None,
+            tech_used=None,
+            type=None,
+            domain="",
+            image_url=None,
+            source_url=None,
+            features=None,
     ):
         self.name = name
         self.desc = desc
@@ -167,16 +179,16 @@ class StudyMaterial:
     URDU = "Urdu"
 
     def __init__(
-        self,
-        id: str = None,
-        name: str = None,
-        link: str = None,
-        standard: str = None,
-        type: str = None,
-        subject: str = None,
-        branch: str = None,
-        language=None,
-        source=None,
+            self,
+            id: str = None,
+            name: str = None,
+            link: str = None,
+            standard: str = None,
+            type: str = None,
+            subject: str = None,
+            branch: str = None,
+            language=None,
+            source=None,
     ):
         self.id = id
         self.name = name
@@ -192,14 +204,14 @@ class StudyMaterial:
     def from_df_row(cls, row, idx, is_class=True):
         return cls(
             id=f"b{idx}",
-            name=row["name"],
+            name=row["material_name"],
             link=f'https://drive.google.com/file/d/{row["gdrive_file_id"]}/preview?usp=drivesdk',
             standard=f'Class-{str(row["class"]).zfill(2)}'
             if is_class
             else row["class"],
             type=row["type"],
             subject=row["subject"],
-            branch=row["branch"] if row["branch"] else None,
+            branch=row["branch"] if row.get("branch") else None,
             language=row["language"],
             source=row["source"],
         )
@@ -207,13 +219,13 @@ class StudyMaterial:
 
 class MaterialSummary:
     def __init__(
-        self,
-        standard=None,
-        books=None,
-        notes=None,
-        questions=None,
-        subjects=None,
-        languages=None,
+            self,
+            standard=None,
+            books=None,
+            notes=None,
+            questions=None,
+            subjects=None,
+            languages=None,
     ):
         self.standard = standard
         self.books = books

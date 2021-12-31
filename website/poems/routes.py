@@ -1,5 +1,5 @@
 from flask import *
-from website.static_details import *
+from website.details import *
 
 poem_bp = Blueprint("poem_bp", __name__)
 

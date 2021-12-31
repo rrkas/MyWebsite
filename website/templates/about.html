@@ -26,13 +26,19 @@
             <div class="item-box">
                 <span style="display: flex;">
                     <div style="flex-grow: 1;">
-                        <div class="item">{{ edu.school }}</div>
+                        <div class="item">{{ edu.institute }}</div>
                         <div style="font-weight: 600; color: #888888;">{{ edu.address }}</div>
-                        <div style="font-weight: 700; color: green;">{{ edu.score }}%</div>
+                        <div style="font-weight: 700; color: green;">
+                            {% if edu.score > 10 %}
+                            {{ edu.score }}%
+                            {% else %}
+                            CGPA {{ edu.score }}
+                            {% endif %}
+                        </div>
                     </div>
                     <div style="width: 100px;text-align: right;">
                         <div style="font-weight: 600;">{{ edu.std }}</div>
-                        <div style="font-weight: 600; color: black;">{{ edu.year }}</div>
+                        <div style="font-weight: 600; color: black;">{{ edu.start_year }} - {{ edu.end_year }}</div>
                     </div>
                 </span>
             </div>

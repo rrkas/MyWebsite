@@ -1,5 +1,5 @@
 from flask import *
-from website.static_details import *
+from website.details import *
 
 technical_project = Blueprint("technical_project", __name__)
 

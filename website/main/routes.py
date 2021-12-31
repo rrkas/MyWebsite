@@ -1,6 +1,7 @@
 import os
 from flask import *
-from website.static_details import *
+from website.details import *
+import requests
 
 main = Blueprint("main", __name__)
 
@@ -16,17 +17,41 @@ def favicon():
 
 @main.route("/")
 def home():
-    return render_template("home.html")
+    response = requests.get("https://raw.githubusercontent.com/rrkas/MyWebsiteData/main/data/intro.html")
+    if response.status_code == 200:
+        intro_html = response.text
+    else:
+        intro_html = '<p style="color:indigo;">Error Loading intro!</p>'
+    return render_template("home.html", intro_html=intro_html)
 
 
 @main.route("/about")
 def about():
-    return render_template("about.html", title="About", details=PersonalDetails)
+    details_response = requests.get(
+        "https://raw.githubusercontent.com/rrkas/MyWebsiteData/main/data/about_personal_details.json"
+    )
+    if details_response.status_code == 200:
+        details = json.loads(details_response.text)
+    else:
+        details = {}
+    education_df = pd.read_csv("https://raw.githubusercontent.com/rrkas/MyWebsiteData/main/data/about_education.csv")
+    education_df.sort_values(by=["end_year"], inplace=True, ascending=False)
+    education = [Education.from_df_row(education_df.iloc[row_idx]) for row_idx in range(len(education_df))]
+    details["education"] = education
+    return render_template("about.html", title="About", details=details)
 
 
 @main.route("/cv")
 def cv():
-    return render_template("cv.html", title="CV", url=PersonalDetails.cv_url)
+    details_response = requests.get(
+        "https://raw.githubusercontent.com/rrkas/MyWebsiteData/main/data/about_personal_details.json"
+    )
+    if details_response.status_code == 200:
+        file_id = json.loads(details_response.text)["cv_gdrive_file_id"]
+        url = f'https://drive.google.com/file/d/{file_id}/preview?usp=drivesdk'
+    else:
+        url = None
+    return render_template("cv.html", title="CV", url=url)
 
 
 # ======================== error handlers ===========================
